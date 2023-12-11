@@ -15,5 +15,20 @@
     background-color: antiquewhite;
     font-family: "Bangers",system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 3.2rem;
-
+}
+.addingBook{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    min-height: 400px;
+}
+.add-book{
+    font-family: "Shadows Into Light",system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-weight: 1.8rem;
+    background-color: cornsilk;
+    padding:20px;
+    border-radius: 16px;
+    border: 4px solid palevioletred;
 }
