@@ -36,6 +36,18 @@ body{
     border-radius: 16px;
     border: 6px solid palevioletred;
 }
+form{
+    font-size: 1.6rem;
+    width: 480px;
+    margin: 0 auto;
+    border: 2px solid lightpink;
+    border-radius: 4px;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .book-toggle{
     display: flex;
     flex-direction: column;
