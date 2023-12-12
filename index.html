@@ -23,35 +23,49 @@
             <button class="add-book">Add New Book <span>+</span></button>
         </div>
         <form class="book-toggle">
+            <h1> Book Details</h1>
+            <p>Required details are followed by <strong><span aria-label="required">*</span></strong></p>
             <ul id="books">
                 <li>
                      <label for="title">
-                        Title: <span aria-label="required">*</span>
+                        <span>Title: </span>
+                        <strong><span aria-label="required">*</span></strong>
                     </label>
-                    <input type="text" name="book_title" id="title">
+                    <input type="text" name="book_title" id="title" required>
                 </li>
                 <li>
                     <label for="author">
-                        Author: <span aria-label="required">*</span>
+                        <span>Author: </span>
+                        <strong><span aria-label="required">*</span></strong>
                     </label>
-                    <input type="text" name="book_author" id="author">
+                    <input type="text" name="book_author" id="author" required>
                 </li>
                 <li>
                     <label for="pages">
-                        Pages: <span aria-label="required">*</span>
+                        <span>Pages: </span> 
+                        <strong><span aria-label="required">*</span></strong>
                     </label>
-                    <input type="number" name="book_pages" id="pages">
-                </li>
-                <li>
-                    <label for="read">
-                        <p>Have you read the book?<span aria-label="required">*</span></p>
-                    </label>
-                    Yes
-                    <input type="radio" name="book_status" id="read" value="Yes">
-                    No
-                    <input type="radio" name="book_status" id="not-read" value="No">
+                    <input type="number" name="book_pages" id="pages" required>
                 </li>
             </ul>
+            <section id="read_status">
+                <fieldset>
+                    <legend> Have you read the book? <strong><span aria-label="required">*</span></strong></legend>
+                    <ul>
+                        <li>
+                            <label for="read">
+                                <input type="radio" name="book_status" id="read" value="Yes" checked>
+                                Yes
+                            </label>
+                        </li>
+                        <li>
+                            <label for="not-read">
+                                <input type="radio" name="book_status" id="not-read" value="No">
+                                No
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
             <section>
                 <p>
                     <button type="submit">Submit</button>
