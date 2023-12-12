@@ -22,6 +22,38 @@
         <div class="addingBook">
             <button class="add-book">Add New Book <span>+</span></button>
         </div>
+        <form class="book-toggle">
+            <ul id="books">
+                <li>
+                     <label for="title">
+                        Title <span aria-label="required">*</span>
+                    </label>
+                    <input type="text" name="book_title" id="title">
+                </li>
+                <li>
+                    <label for="author">
+                        Author: <span aria-label="required">*</span>
+                    </label>
+                    <input type="text" name="book_author" id="author">
+                </li>
+                <li>
+                    <label for="pages">
+                        Pages<span aria-label="required">*</span>
+                    </label>
+                    <input type="number" name="book_pages" id="pages">
+                </li>
+                <li>
+                    <label for="read">
+                        <p>Have you read the book?<span aria-label="required">*</span></p>
+                    </label>
+                    Yes
+                    <input type="radio" name="book_status" id="read" value="Yes">
+                    No
+                    <input type="radio" name="book_status" id="not-read" value="No">
+                </li>
+            </ul>
+            <button type="submit">Submit</button>
+        </form>
     </main>
     <script src="script.js"></script>
 </body>
