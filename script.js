@@ -7,13 +7,24 @@ function Book(title,author,pages,read){
     this.author=author;
     this.pages=pages;
     this.read=read;
-
+}
     this.info= function(){
         let readStatus = read? 'read': 'not yet read';
-        let bookInfo= `${title} by ${author} has ${pages} ${readStatus}`;
+        let bookInfo= `${title} by ${author} has ${pages} pages and is ${readStatus}`;
         return bookInfo
-}
+    }
+const bone = new Book("Bnture","bivinya",265,false);
+const king =new Book("king","Queen",900,true);
 //function for adding new book objects to the array
-function addBookToLibrary(input){
-    myLibrary.push(input)
+function addBook(book){
+    myLibrary.push(book)
+    return myLibrary
 }
+addBook()
+//function that loops through the array and returns each book
+function getBook(){
+    for (let i =0;i< myLibrary.length;i++){
+        console.table(myLibrary[i])
+    }
+}
+getBook()
