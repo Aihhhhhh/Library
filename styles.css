@@ -20,6 +20,11 @@ body{
     font-family: "Bangers",system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 3.2rem;
 }
+header{
+    display: grid;
+    grid-column: 1/2;
+    grid-template-columns: repeat(1,auto-fit,minmax(32rem,1fr));
+}
 .addingBook{
     display: flex;
     justify-content: center;
@@ -36,7 +41,12 @@ body{
     border-radius: 16px;
     border: 6px solid palevioletred;
 }
+.add-book:hover{
+    background-color:springgreen;
+}
 form{
+    display: flex;
+    flex-direction: column;
     font-size: 1.6rem;
     width: 48rem;
     margin: 0 auto;
@@ -48,13 +58,12 @@ ul{
     margin: 0;
     padding: 0;
 }
-.book-toggle{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
 label{
     display: inline-block;
     width: 8rem;
     text-align: start;
+}
+input[type="text"]:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(221, 216, 216, 0.25);
 }
