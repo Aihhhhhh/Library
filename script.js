@@ -28,3 +28,17 @@ function getBook(){
     }
 }
 getBook()
+const dialogShow = document.querySelector("#enquiry")
+//display form on button click
+const addButton = document.querySelector(".add-book");
+console.log(addButton);
+
+addButton.addEventListener("click",()=>{
+    dialogShow.showModal();
+})
+/*function addForm(){
+        const form1 = document.getElementById("bookform").style.display="block";
+        console.log(form1)
+}
+addForm()
+*/
