@@ -19,25 +19,30 @@ function Book(title,author,pages,read){
 const dialogShow = document.querySelector("#enquiry");
 //get the book title
 const bookTitle = dialogShow.querySelector("#title");
-console.log(title);
+console.log(bookTitle);
 //get the book author
 const bookAuthor = dialogShow.querySelector("#author");
-console.log(author);
+console.log(bookAuthor);
 //get number of pages
 const bookPages = dialogShow.querySelector("#pages");
-console.log(pages)
+console.log(bookPages)
 //function for creating book object
 function createBook(){
     let title = bookTitle.value;
     let author = bookAuthor.value;
     let pages = bookPages.value;
-
-    let newBook = new Book(title,author,pages)
-    console.log(newBook);
+    
+    let newBook = new Book(title,author,pages);
+    console.log(newBook)
+    return newBook;
 }
 createBook()
+
 //function for adding new book objects to the array
 function addBook(){
+    myLibrary.push(createBook())
+    console.log(myLibrary)
+    return myLibrary
     
 }
 addBook()
@@ -45,6 +50,7 @@ addBook()
 function getBook(){
     for (let i =0;i< myLibrary.length;i++){
         console.log(myLibrary[i])
+        return myLibrary[i];
     }
 }
 getBook()
@@ -65,8 +71,9 @@ cancel.addEventListener("click",(event)=>{
 const submit = document.querySelector("#confirm")
 submit.addEventListener("click",(event)=>{
     createBook()
+    addBook()
     event.preventDefault()
     dialogShow.close()
 })
-
+//display table on a close event occuring
 
