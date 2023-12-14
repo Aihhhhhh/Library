@@ -32,13 +32,18 @@ const dialogShow = document.querySelector("#enquiry")
 //display form on button click
 const addButton = document.querySelector(".add-book");
 console.log(addButton);
-
+//function for displaying the modal
 addButton.addEventListener("click",()=>{
     dialogShow.showModal();
 })
-/*function addForm(){
-        const form1 = document.getElementById("bookform").style.display="block";
-        console.log(form1)
-}
-addForm()
-*/
+//function for preventing submissions
+const submit = document.querySelector("#cancel")
+submit.addEventListener("click",(event)=>{
+    event.preventDefault();
+    dialogShow.close()
+})
+const submitt = document.querySelector("#confirm")
+submitt.addEventListener("click",(event)=>{
+    event.preventDefault()
+    dialogShow.close()
+})
