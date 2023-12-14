@@ -37,13 +37,29 @@ addButton.addEventListener("click",()=>{
     dialogShow.showModal();
 })
 //function for preventing submissions
-const submit = document.querySelector("#cancel")
-submit.addEventListener("click",(event)=>{
+const cancel = document.querySelector("#cancel")
+cancel.addEventListener("click",(event)=>{
     event.preventDefault();
     dialogShow.close()
 })
-const submitt = document.querySelector("#confirm")
-submitt.addEventListener("click",(event)=>{
+//add a click event listener to the submit burron
+const submit = document.querySelector("#confirm")
+submit.addEventListener("click",(event)=>{
     event.preventDefault()
     dialogShow.close()
 })
+//get the book title
+const titleBook = dialogShow.querySelector("#title");
+console.log(titleBook);
+//get the book author
+const authorBook = dialogShow.querySelector("#author");
+console.log(authorBook);
+//get number of pages
+const pagesBook = dialogShow.querySelector("#pages");
+console.log(pagesBook)
+//get book read
+const readBook = dialogShow.querySelector("#read");
+console.log(readBook)
+//get book not read
+const notRead = dialogShow.querySelector("#not-read");
+console.log(notRead)
