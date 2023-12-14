@@ -20,7 +20,7 @@
     </header>
     <main>
         <div class="addingBook">
-            <button type="button" class="add-book" onclick="addForm()">Add New Book <span>+</span></button>
+            <button type="button" class="add-book">Add New Book <span>+</span></button>
         </div>
         <dialog id="enquiry">
             <form class="book-toggle" id="bookform">
@@ -52,7 +52,7 @@
                 <section id="read-status">
                     <fieldset>
                         <legend> Have you read the book? <strong><span aria-label="required">*</span></strong></legend>
-                        <ul>
+                        <ul id="radios">
                             <li>
                                 <label for="read">
                                     <input type="radio" name="book_status" id="read" value="Yes" checked>
