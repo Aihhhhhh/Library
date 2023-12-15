@@ -105,5 +105,11 @@ input[type="text"]:hover{
     justify-content: center;
 }
 .book-table{
-    display: none;
+    display:none;
+}
+table,td,th{
+    border: 1px solid;
+}
+table{
+    border-collapse: collapse;
 }
