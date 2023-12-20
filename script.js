@@ -7,13 +7,13 @@ function Book(title,author,pages,read){
     this.author=author;
     this.pages=pages;
     this.read=read;
-
-    this.info= function(){
-        let readStatus = read? 'read': 'not yet read';
-        let bookInfo= `${title} by ${author} has ${pages} pages and is ${readStatus}`;
-        return bookInfo
-    }
 }
+Book.prototype.info= function(){
+    let readStatus = read? 'read': 'not yet read';
+    let bookInfo= `${title} by ${author} has ${pages} pages and is ${readStatus}`;
+    return bookInfo
+}
+
 
 //get the whole form
 const dialogShow = document.querySelector("#enquiry");
@@ -25,14 +25,28 @@ const bookAuthor = dialogShow.querySelector("#author");
 console.log(bookAuthor);
 //get number of pages
 const bookPages = dialogShow.querySelector("#pages");
-console.log(bookPages)
+console.log(bookPages);
+//get the read status
+const bookRead = dialogShow.querySelectorAll("[name='book-read']");
+console.log(bookRead);
+//loop though the nodelist and get selected value
+let answer = ()=>document.querySelector('input[name="book-read"]:checked').value
+console.log(answer())
+
+bookRead.forEach(function(book){
+    book.addEventListener("change",()=>{
+        console.log(answer())
+    })
+})
+
 //function for creating book object
 function createBook(){
     let title = bookTitle.value;
     let author = bookAuthor.value;
     let pages = bookPages.value;
+    let read = answer()
     
-    let newBook = new Book(title,author,pages);
+    let newBook = new Book(title,author,pages,read);
     console.log(newBook)
     return newBook;
 }
@@ -70,10 +84,15 @@ cancel.addEventListener("click",(event)=>{
 //add a click event listener to the submit burron
 const submit = document.querySelector("#confirm")
 submit.addEventListener("click",(event)=>{
-    createBook()
     addBook()
     event.preventDefault()
     dialogShow.close()
 })
 //display table on a close event occuring
-
+let card = document.querySelector(".book-table");
+for(let obj of myLibrary){
+    let tr =  card.insertRow();
+    tr.insertCell().textContent = obj.title
+    tr.insertCell().textContent = obj.author;
+    tr.insertCell().textContent = obj.pages;
+}
