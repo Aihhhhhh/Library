@@ -7,10 +7,11 @@ function Book(title,author,pages,read){
     this.author=author;
     this.pages=pages;
     this.read=read;
-}
+    }
+
 Book.prototype.info= function(){
     let readStatus = read? 'read': 'not yet read';
-    let bookInfo= `${title} by ${author} has ${pages} pages and is ${readStatus}`;
+    let bookInfo= `${title} by ${author} has ${pages} pages and is ${read}`;
     return bookInfo
 }
 
@@ -30,9 +31,8 @@ console.log(bookPages);
 const bookRead = dialogShow.querySelectorAll("[name='book-read']");
 console.log(bookRead);
 //loop though the nodelist and get selected value
-let answer = ()=>document.querySelector('input[name="book-read"]:checked').value
-console.log(answer())
-
+let answer = () =>document.querySelector('input[name="book-read"]:checked').value
+console.log(answer())//target the selected value by the user
 bookRead.forEach(function(book){
     book.addEventListener("change",()=>{
         console.log(answer())
@@ -44,16 +44,17 @@ function createBook(){
     let title = bookTitle.value;
     let author = bookAuthor.value;
     let pages = bookPages.value;
-    let read = answer()
+    let read = answer();
     
     let newBook = new Book(title,author,pages,read);
-    console.log(newBook)
+    console.log(newBook);
     return newBook;
 }
 createBook()
 
 //function for adding new book objects to the array
 function addBook(){
+    createBook();
     myLibrary.push(createBook())
     console.log(myLibrary)
     return myLibrary
@@ -80,19 +81,27 @@ const cancel = document.querySelector("#cancel")
 cancel.addEventListener("click",(event)=>{
     event.preventDefault();
     dialogShow.close()
+    displayTable()
 })
-//add a click event listener to the submit burron
+//add a click event listener to the submit button
 const submit = document.querySelector("#confirm")
 submit.addEventListener("click",(event)=>{
-    addBook()
-    event.preventDefault()
-    dialogShow.close()
+    addBook();
+    event.preventDefault();
+    dialogShow.close();
 })
 //display table on a close event occuring
-let card = document.querySelector(".book-table");
-for(let obj of myLibrary){
-    let tr =  card.insertRow();
-    tr.insertCell().textContent = obj.title
-    tr.insertCell().textContent = obj.author;
-    tr.insertCell().textContent = obj.pages;
+
+for(let i=0;i<myLibrary.length;i++){
+    const card =`<div class="book-card" data-index=${i}>
+                    <div class="card-info">
+                        <h2>${bookTitle}</h2>
+                        <h3>${bookAuthor}</h3>
+                        <h4>${bookPages}</h4>
+                        <p>${answer()}</p>
+                        <div class="button">Remove Book</div>
+                    </div>
+                </div>`
+    const books = document.createElement("div");
+    books.append(card);
 }
