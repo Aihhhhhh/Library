@@ -88,20 +88,52 @@ const submit = document.querySelector("#confirm")
 submit.addEventListener("click",(event)=>{
     addBook();
     event.preventDefault();
-    dialogShow.close();
+    dialogShow.close(createLib());
 })
-//display table on a close event occuring
+//create DOM Elements
+function createLib(){
+    const library = document.querySelector("#library-container");
+    const bookDiv = document.createElement("div");
+    const titleDiv = document.createElement("div");
+    const authorDiv = document.createElement('div');
+    const pagesDiv = document.createElement('div');
+    const removeBtn = document.createElement("button");
+    const readBtn = document.createElement("button");
 
-for(let i=0;i<myLibrary.length;i++){
-    const card =`<div class="book-card" data-index=${i}>
-                    <div class="card-info">
-                        <h2>${bookTitle}</h2>
-                        <h3>${bookAuthor}</h3>
-                        <h4>${bookPages}</h4>
-                        <p>${answer()}</p>
-                        <div class="button">Remove Book</div>
-                    </div>
-                </div>`
-    const books = document.createElement("div");
-    books.append(card);
+
+    bookDiv.classList.toggle('book');
+
+    titleDiv.textContent = bookTitle.value;
+    titleDiv.classList.toggle("title");
+    bookDiv.appendChild(titleDiv);
+
+    authorDiv.textContent = bookAuthor.value;
+    authorDiv.classList.toggle("author");
+    bookDiv.appendChild(authorDiv);
+
+    pagesDiv.textContent = bookPages.value;
+    pagesDiv.classList.toggle("pages");
+    bookDiv.appendChild(pagesDiv);
+
+    readBtn.classList.toggle('readBtn');
+    bookDiv.appendChild(readBtn);
+    if(answer() === "No"){
+        readBtn.textContent = "In progress";
+        readBtn.style.backgroundColor = "red";
+    }else{
+        readBtn.textContent ="Finished";
+        readBtn.style.backgroundColor = "green";
+    }
+
+    removeBtn.textContent ="Remove";
+    bookDiv.appendChild(removeBtn);
+
+    library.appendChild(bookDiv);
+    
+
+    removeBtn.addEventListener("click",()=>{
+        myLibrary.splice(myLibrary.pop());
+        setData();
+    })
 }
+
