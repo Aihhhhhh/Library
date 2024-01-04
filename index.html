@@ -19,66 +19,67 @@
         </div>
     </header>
     <main>
-        <div class="addingBook">
-            <button type="button" class="add-book">Add New Book <span>+</span></button>
+        <div class="container">
+            <div class="addingBook">
+                <button type="button" class="add-book">Add New Book <span>+</span></button>
+            </div>
+            <dialog id="enquiry">
+                <form class="book-toggle" id="bookform">
+                    <h1> Book Details</h1>
+                    <p id="please-note">Required details are followed by <strong><span aria-label="required">*</span></strong></p>
+                    <ul id="books">
+                        <li>
+                            <label for="title">
+                                <span>Title: </span>
+                                <strong><span aria-label="required">*</span></strong>
+                            </label>
+                            <input type="text" name="book_title" id="title" placeholder="Title of the book" required>
+                        </li>
+                        <li>
+                            <label for="author">
+                                <span>Author: </span>
+                                <strong><span aria-label="required">*</span></strong>
+                            </label>
+                            <input type="text" name="book_author" placeholder="Author of the book" id="author"required>
+                        </li>
+                        <li>
+                            <label for="pages">
+                                <span>Pages: </span> 
+                                <strong><span aria-label="required">*</span></strong>
+                            </label>
+                            <input type="number" name="book_pages" id="pages" placeholder="Number of Pages">
+                        </li>
+                    </ul>
+                    <section id="read-status">
+                        <fieldset>
+                            <legend> Have you read the book? <strong><span aria-label="required">*</span></strong></legend>
+                            <ul id="radios">
+                                <li>
+                                    <label for="read">
+                                        <input type="radio" name="book-read" id="read" value="Yes" checked>
+                                        Yes
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="not-read">
+                                        <input type="radio" name="book-read" id="not-read" value="No">
+                                        No
+                                    </label>
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </section>
+                    <section>
+                        <p id="buttons">
+                            <button type="button" id="cancel" formmethod="dialog">Cancel</button>
+                            <button type="submit" id="confirm">Submit</button>
+                        </p>
+                    </section>
+                </form>
+            </dialog>
+            <div id="library-container"></div>
         </div>
-        <dialog id="enquiry">
-            <form class="book-toggle" id="bookform">
-                <h1> Book Details</h1>
-                <p id="please-note">Required details are followed by <strong><span aria-label="required">*</span></strong></p>
-                <ul id="books">
-                    <li>
-                        <label for="title">
-                            <span>Title: </span>
-                            <strong><span aria-label="required">*</span></strong>
-                        </label>
-                        <input type="text" name="book_title" id="title" placeholder="Title of the book" required>
-                    </li>
-                    <li>
-                        <label for="author">
-                            <span>Author: </span>
-                            <strong><span aria-label="required">*</span></strong>
-                        </label>
-                        <input type="text" name="book_author" placeholder="Author of the book" id="author"required>
-                    </li>
-                    <li>
-                        <label for="pages">
-                            <span>Pages: </span> 
-                            <strong><span aria-label="required">*</span></strong>
-                        </label>
-                        <input type="number" name="book_pages" id="pages" placeholder="Number of Pages">
-                    </li>
-                </ul>
-                <section id="read-status">
-                    <fieldset>
-                        <legend> Have you read the book? <strong><span aria-label="required">*</span></strong></legend>
-                        <ul id="radios">
-                            <li>
-                                <label for="read">
-                                    <input type="radio" name="book-read" id="read" value="Yes" checked>
-                                    Yes
-                                </label>
-                            </li>
-                            <li>
-                                <label for="not-read">
-                                    <input type="radio" name="book-read" id="not-read" value="No">
-                                    No
-                                </label>
-                            </li>
-                        </ul>
-                    </fieldset>
-                </section>
-                <section>
-                    <p id="buttons">
-                        <button type="button" id="cancel" formmethod="dialog">Cancel</button>
-                        <button type="submit" id="confirm">Submit</button>
-                    </p>
-                </section>
-            </form>
-        </dialog>
-        <div class="library-container"></div>
     </main>
-    <div class="container"></div>
     <script src="script.js"></script>
 </body>
 </html>
